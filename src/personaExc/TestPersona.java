@@ -2,8 +2,11 @@ package personaExc;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 class TestPersona {
 
@@ -34,7 +37,7 @@ class TestPersona {
 	}
 	@Test
 	void testSetEdadInf0() throws Exception {
-		
+		//Assertions.assertThrows
 		Assert.assertThrows(Exception.class, ()->{
 			Persona p1 = new Persona();
 			p1.setEdad(-15);
@@ -52,6 +55,19 @@ class TestPersona {
 	void testEsMayorEdad() throws Exception {
 		Persona p1 = new Persona(16);
 		assertFalse(p1.esMayorEdad());
+	}
+	
+	
+	@ParameterizedTest
+	@CsvSource({
+		"15, 'Escolar'",
+		"29,'Laboral'",
+		"90,'Jubilación'"
+		
+	})
+	void testClasificar(int valor, String res) {
+		Persona p1 = new Persona();
+		assertEquals(res.toLowerCase(), p1.clasificar().toLowerCase());
 	}
 
 }
