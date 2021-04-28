@@ -40,9 +40,13 @@ public class Persona {
 			return false;
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Esta persona tiene %d años", edad);
+	public String clasificar() {
+		if(this.edad<=16)
+			return "escolar";
+		else if(this.edad <=66)
+			return "laboral";
+		else 
+			return "jubilación";
 	}
 	
 	
