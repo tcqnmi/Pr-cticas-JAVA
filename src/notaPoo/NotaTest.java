@@ -2,7 +2,7 @@ package notaPoo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 class NotaTest {
@@ -36,16 +36,15 @@ class NotaTest {
 	//Ahora vamos a probar que nos de error al intentar meter una nota menor de 0
 	@Test
 	void testSetNotaInferiorCero(){
-		org.junit.jupiter.api.Assertions.assertThrows(Exception.class, () -> {
+		Assert.assertThrows(Exception.class, () -> {
 			Nota n = new Nota();
 			n.setNota(-1);
 		});		
 		
 	}
-	//No sé porqué pero solo me funciona con "el importado" el resto igual que en clase
 	@Test
 	void testSetNotaSuperiorCero() {
-		org.junit.jupiter.api.Assertions.assertThrows(Exception.class, () -> {
+		Assert.assertThrows(Exception.class, () -> {
 			Nota n = new Nota();
 			n.setNota(11);
 		});		
